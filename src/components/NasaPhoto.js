@@ -13,7 +13,7 @@ function NasaPhoto() {
                 //console.log(response.data)
             })
             .catch(err => console.log("Image not found", err));
-    }, []);
+    }, {});
 
     return (
         <Row>
@@ -21,7 +21,7 @@ function NasaPhoto() {
             <Card body inverse style={{borderColor:"slateblue"}}>
                 <CardBody>
                     <CardHeader tag="h2">{nasaData.title}</CardHeader>
-                    <CardTitle tag="h4">Today's Date: {nasaData.date}</CardTitle>
+                    <CardTitle tag="h5">Today's Date: {nasaData.date}</CardTitle>
                 </CardBody>
                 <CardImg src={nasaData.url} alt="Nasa photo of the day"/>
                 <CardBody>
