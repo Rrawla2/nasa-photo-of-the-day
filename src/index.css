@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.col-sm-6 {
+  margin: 0 auto;
+}
+
+.card-header {
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 1px 1px rgb(0, 0, 0);
+  background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(186, 170, 245));
+}
+
+.card div{
+  background-color: slateblue;
+}
+p {
+  text-align: justify;
+}
+.copyright {
+  text-align: center;
+}

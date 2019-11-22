@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, CardHeader, CardImg, CardText, CardBody, CardTitle, Row, Col } from "reactstrap";
+import styled from "styled-components";
 
 function NasaPhoto() {
     const [nasaData, setNasaData] = useState({});
-    // const [nasaPhoto, setNasaPhoto] = useState("");
-    // const [nasaTitle, setNasaTitle] = useState("");
-    // const [nasaDate, setNasaDate] = useState("");
-    // const [nasaExplanation, setNasaExplanation] = useState("");
-    // const [nasaCopyrightInfo, setNasaCopyrightInfo] = useState("");
-
+  
+    //console.log(nasaData.explanation)
     useEffect(() => {
-        axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+        axios.get("https://api.nasa.gov/planetary/apod?api_key=jbyxg3UbUNaxnAMo7PgiCr3zYAzonYx7KlAQzEfy")
             .then(response => {setNasaData(response.data)
-            // setNasaPhoto(response.data.url);
-            // setNasaTitle(response.data.title);
-            // setNasaDate(response.data.date);
-            // setNasaExplanation(response.data.explanation);
-            // setNasaCopyrightInfo(response.data.copyright);
+                //console.log(response.data)
             })
             .catch(err => console.log("Image not found", err));
     }, []);
@@ -25,16 +18,16 @@ function NasaPhoto() {
     return (
         <Row>
         <Col sm="6">
-            <Card>
+            <Card body inverse style={{borderColor:"slateblue"}}>
                 <CardBody>
-                    <CardHeader tag="h1">{nasaData.title}</CardHeader>
+                    <CardHeader tag="h2">{nasaData.title}</CardHeader>
                     <CardTitle tag="h4">Today's Date: {nasaData.date}</CardTitle>
                 </CardBody>
                 <CardImg src={nasaData.url} alt="Nasa photo of the day"/>
                 <CardBody>
-                    <CardText>&copy; {nasaData.copyright}</CardText>
+                    <CardText className="copyright">&copy; {nasaData.copyright}</CardText>
                     <CardTitle tag="h2">Fun Facts</CardTitle>
-                    <CardText> {nasaData.explanation}</CardText>
+                    <CardText>{nasaData.explanation}</CardText>
                 </CardBody>
             </Card>
         </Col>
