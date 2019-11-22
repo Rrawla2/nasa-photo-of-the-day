@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-
+import axios from "axios";
 
 function NasaPhoto(props) {
     const [nasaPhoto, setNasaPhoto] = useState("");
-    const axios = require('axios').default;
+    
 
     useEffect(() => {
         axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
